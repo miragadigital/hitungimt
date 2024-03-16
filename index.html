@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="bmiForm">
+        <img src="logo.png" alt="">
+        <h2>Kalkulator Indeks Massa Tubuh</h2><br>
+        <label for="nama">Nama Anda :</label>
+        <input type="text" id="namaku" required><br>
+        <label for="height">Tinggi Badan (cm):</label>
+        <input type="number" id="height" min="1" required><br>
+        <label for="weight">Berat Badan (kg):</label>
+        <input type="number" id="weight" min="1" required><br><br><br>
+        <button id="calculateBtn">Hitung BMI</button>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
