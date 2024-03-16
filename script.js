@@ -33,7 +33,7 @@ document.getElementById('calculateBtn').addEventListener('click', function() {
     }
 
     var result = 'Hasil IMT Anda: ' + bmi.toFixed(2) + '<br>';
-    result += 'Kategori IMT: ' + bmiCategory + '<br><br><br><br>'; 
+    result += 'Kategori IMT: ' + bmiCategory + '<br><br>'; 
     result += 'Wejangan Sepuh : <br>' + pesan;
 
     showModal(result);
