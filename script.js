@@ -25,7 +25,7 @@ document.getElementById('calculateBtn').addEventListener('click', function() {
     if (bmi < 18.5) {
         pesan = 'Jangan hemat-hemat ya '+ nama +', makan yang banyak, ada mie ayam, soto, rawon di SKA';
     } else if (bmi < 25) {
-        pesan = 'Pertahankan tubuh indah mu itu '+ nama +', karena perang yang berat adalah perang melawan nafsu makan kalo udah nongkrong di SKA';
+        pesan = 'Pertahankan badan ideal mu itu '+ nama +', karena perang yang berat adalah perang melawan nafsu makan kalo udah nongkrong di SKA';
     } else if (bmi < 30) {
         pesan = 'Awas lho '+ nama +', baju mungkin udah mulai ga muat, mungkin beratnya hidup ini tak seberat badan mu';
     } else {
