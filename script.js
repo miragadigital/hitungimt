@@ -23,13 +23,13 @@ document.getElementById('calculateBtn').addEventListener('click', function() {
     }
 
     if (bmi < 18.5) {
-        pesan = 'Jangan hemat-hemat ya '+ nama +', makan yang banyak, ada mie ayam, soto, rawon di SKA';
+        pesan = 'Kamu kok kecil banget,, Jangan hemat-hemat ya '+ nama +', makan yang banyak, ada mie ayam, soto, rawon di SKA STPL Bekasi';
     } else if (bmi < 25) {
-        pesan = 'Pertahankan badan ideal mu itu '+ nama +', karena perang yang berat adalah perang melawan nafsu makan kalo udah nongkrong di SKA';
+        pesan = 'Pertahankan badan ideal mu itu '+ nama +', karena perang yang berat adalah perang melawan nafsu makan kalo udah nongkrong di SKA STPL Bekasi';
     } else if (bmi < 30) {
-        pesan = 'Awas lho '+ nama +', baju mungkin udah mulai ga muat, mungkin beratnya hidup ini tak seberat badan mu';
+        pesan = 'Awas lho '+ nama +', baju mungkin udah mulai ga muat, mungkin beratnya hidup ini tak seberat badan mu, coba rutin jajan jus tanpa gula di SKA STPL Bekasi';
     } else {
-        pesan = 'Banyakin puasa dan olahraga ya '+ nama +', lapangan udah bagus, ada gym center juga, nongkrong di SKA nya cukup jajan jus aja ya';
+        pesan = 'Banyakin puasa dan olahraga ya '+ nama +', lapangan STPL lega, ada lapang tenis dan voli, nongkrong di SKA STPL Bekasi nya cukup jajan jus tanpa gula saja ya';
     }
 
     var result = 'Hasil IMT Anda: ' + bmi.toFixed(2) + '<br>';
