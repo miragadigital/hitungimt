@@ -1,47 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORM PEMERIKSAAN</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Kalkulator BMI Modern</title>
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Menggunakan font Inter sebagai default */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styling untuk radio button */
+        .gender-radio-label {
+            transition: all 0.2s ease-in-out;
+        }
+        .gender-radio-input:checked + .gender-radio-label {
+            border-color: #3b82f6; /* blue-500 */
+            background-color: #eff6ff; /* blue-50 */
+            color: #2563eb; /* blue-600 */
+            font-weight: 600;
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <div class="form-section">
-            <img src="logo.png" alt="" class="lg">
-            <h1>FORM PEMERIKSAAN</h1>
-            <div class="form-group">
-                <label for="name">Nama:</label>
-                <input type="text" id="name">
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Container Utama -->
+    <div class="w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden md:flex">
+
+        <!-- Bagian Kiri: Form Input -->
+        <div class="w-full md:w-1/2 p-6 md:p-8">
+            <h1 class="text-2xl font-bold text-slate-800 mb-2">Kalkulator BMI</h1>
+            <p class="text-slate-600 mb-6">Masukkan data Anda untuk mengetahui status gizi Anda.</p>
+
+            <div class="space-y-4">
+                <!-- Input Nama -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-slate-700">Nama</label>
+                    <input type="text" id="name" placeholder="Contoh: Budi Santoso" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500">
+                </div>
+
+                <!-- Input Jenis Kelamin -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-700">Jenis Kelamin</label>
+                    <div class="mt-2 grid grid-cols-2 gap-3">
+                        <input type="radio" id="male" name="gender" value="Laki-laki" class="hidden gender-radio-input">
+                        <label for="male" class="gender-radio-label border border-slate-200 rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium cursor-pointer hover:border-slate-400">
+                            Laki-laki
+                        </label>
+                        <input type="radio" id="female" name="gender" value="Perempuan" class="hidden gender-radio-input">
+                        <label for="female" class="gender-radio-label border border-slate-200 rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium cursor-pointer hover:border-slate-400">
+                            Perempuan
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Input Umur, Tinggi, Berat -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label for="age" class="block text-sm font-medium text-slate-700">Umur</label>
+                        <input type="number" id="age" placeholder="Tahun" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500">
+                    </div>
+                    <div>
+                        <label for="height" class="block text-sm font-medium text-slate-700">Tinggi (cm)</label>
+                        <input type="number" id="height" placeholder="cm" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500">
+                    </div>
+                    <div>
+                        <label for="weight" class="block text-sm font-medium text-slate-700">Berat (kg)</label>
+                        <input type="number" id="weight" placeholder="kg" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500">
+                    </div>
+                </div>
+
+                <!-- Tombol Hitung -->
+                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition-transform transform hover:scale-105" onclick="calculateBMI()">
+                    Hitung BMI
+                </button>
             </div>
-            <div class="form-group gender-group">
-                <label>Jenis Kelamin:</label>
-                    <input type="radio" id="male" name="gender" value="Laki-laki">Laki-laki
-                    <input type="radio" id="female" name="gender" value="Perempuan">Perempuan
-                
-            </div>
-            <div class="form-group">
-                <label for="age">Umur:</label>
-                <input type="number" id="age">
-            </div>
-            <div class="form-group">
-                <label for="height">Tinggi Badan (cm):</label>
-                <input type="number" id="height">
-            </div>
-            <div class="form-group">
-                <label for="weight">Berat Badan (kg):</label>
-                <input type="number" id="weight">
-            </div>
-            <button class="btn" onclick="calculateBMI()">Hitung BMI</button>
-            <!-- <button class="btn" onclick="printPreview()">Cetak Format Pemeriksaan</button> -->
         </div>
-        <div class="result-section">
-            <img src="logo kemsos.png" alt="" class="lgk">
-            <h1>HASIL HITUNG BMI</h1>
-            <div class="result" id="result"></div>
+
+        <!-- Bagian Kanan: Hasil -->
+        <div class="w-full md:w-1/2 p-6 md:p-8 bg-slate-50 flex items-center justify-center">
+            <div id="result" class="text-center w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+                <h2 class="mt-4 text-xl font-semibold text-slate-700">Hasil Anda</h2>
+                <p class="text-slate-500 mt-1">Hasil perhitungan BMI akan ditampilkan di sini.</p>
+            </div>
+             <!-- Elemen untuk menampilkan pesan error -->
+            <div id="error-message" class="hidden text-center text-red-500 font-medium"></div>
         </div>
+
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        function calculateBMI() {
+            // Mengambil nilai dari input
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const heightInput = document.getElementById('height');
+            const weightInput = document.getElementById('weight');
+            const gender = document.querySelector('input[name="gender"]:checked');
+            
+            const height = parseFloat(heightInput.value) / 100; // Convert cm to meters
+            const weight = parseFloat(weightInput.value);
+
+            // Reset tampilan error
+            document.getElementById('error-message').classList.add('hidden');
+            document.querySelectorAll('input').forEach(el => el.classList.remove('border-red-500'));
+            
+            // Validasi input
+            let hasError = false;
+            if (!name) { document.getElementById('name').classList.add('border-red-500'); hasError = true; }
+            if (!age) { document.getElementById('age').classList.add('border-red-500'); hasError = true; }
+            if (!heightInput.value) { heightInput.classList.add('border-red-500'); hasError = true; }
+            if (!weightInput.value) { weightInput.classList.add('border-red-500'); hasError = true; }
+            if (!gender) { hasError = true; }
+
+            if (hasError) {
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h2 class="mt-4 text-xl font-semibold text-red-700">Oops!</h2>
+                    <p class="text-slate-500 mt-1">Harap isi semua kolom yang ditandai merah.</p>
+                `;
+                if(!gender) {
+                    document.querySelectorAll('.gender-radio-label').forEach(el => el.classList.add('border-red-500'));
+                } else {
+                    document.querySelectorAll('.gender-radio-label').forEach(el => el.classList.remove('border-red-500'));
+                }
+                return;
+            }
+
+            // Hitung BMI
+            const bmi = (weight / (height * height)).toFixed(1);
+            let category = '';
+            let colorClass = '';
+            let messages = [];
+
+            if (bmi < 18.5) {
+                category = "Kekurangan Berat Badan";
+                colorClass = "bg-yellow-500 text-yellow-800";
+                messages = [
+                    "Berat badan kurang, bukan berarti harus makan semua snack! Yuk tambahkan protein dan kalori sehat 🍳🥗.",
+                    "Kamu sering lupa makan ya? Ingat, makan itu wajib, bukan hobi! 🍔🍚",
+                    "Berat badan kurang? Makan teratur, jangan cuma ngemil kerupuk pas lapar 😅."
+                ];
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = "Normal";
+                colorClass = "bg-green-500 text-green-800";
+                messages = [
+                    "Selamat, kamu di jalur yang benar! Tetap makan sehat dan rajin olahraga ya 🏃‍♂️🥦.",
+                    "BMI kamu normal, pertahankan ya! Kamu keren banget! 😎.",
+                    "Keren! Jaga terus pola makan dan gaya hidup sehatmu 💪."
+                ];
+            } else if (bmi >= 25 && bmi < 29.9) {
+                category = "Kelebihan Berat Badan";
+                colorClass = "bg-orange-500 text-orange-800";
+                messages = [
+                    "Ayo semangat bergerak! Jangan cuma olahraga jari di HP, ya 🏋️‍♀️📱.",
+                    "Yuk kurangi makanan goreng-gorengan, tapi jangan kurangi senyum! 😊.",
+                    "Ingat, bakso jumbo itu gak termasuk olahraga angkat beban, ya! 💪🍜."
+                ];
+            } else {
+                category = "Obesitas";
+                colorClass = "bg-red-500 text-red-800";
+                messages = [
+                    "Tubuhmu minta perhatian ekstra. Yuk mulai langkah kecil untuk hidup sehat! 🚶‍♂️🥗.",
+                    "Jangan galau, coba jalan kaki lebih sering dan kurangi 'teh manis' harianmu 🍵.",
+                    "Ayo ubah bab berikutnya jadi lebih sehat dan aktif! 📖🏃."
+                ];
+            }
+
+            // Pilih pesan secara acak
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            const [bgColor, textColor] = colorClass.split(" ");
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <div class="text-center animate-fade-in">
+                    <div class="mx-auto w-28 h-28 rounded-full ${bgColor} flex flex-col items-center justify-center shadow-lg">
+                        <span class="text-4xl font-extrabold text-white">${bmi}</span>
+                        <span class="text-sm font-semibold text-white/80">BMI</span>
+                    </div>
+                    <h2 class="mt-4 text-2xl font-bold ${textColor.replace('text-', 'text-')}">${category}</h2>
+                    <p class="text-slate-600 mt-1">Hasil untuk <strong>${name}</strong> (${age} tahun)</p>
+                    
+                    <div class="mt-6 p-4 bg-slate-100 border border-slate-200 rounded-lg text-left">
+                        <p class="text-sm text-slate-700 italic">"${randomMessage}"</p>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+
 </body>
 </html>
